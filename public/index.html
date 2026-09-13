@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Tax Calculator</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Tax Calculator</h1>
+      <p class="subtitle">Cloud Native DevOps Final Project</p>
+
+      <form id="taxForm">
+        <label for="income">Annual Income</label>
+        <input id="income" name="income" type="number" min="0" step="0.01"
+               placeholder="Enter annual income" required>
+        <button type="submit">Calculate Tax</button>
+      </form>
+
+      <div id="message" class="message"></div>
+
+      <section id="result" class="result hidden">
+        <h2>Tax Result</h2>
+        <div class="result-grid">
+          <div><span>Income</span><strong id="incomeResult">-</strong></div>
+          <div><span>Tax</span><strong id="taxResult">-</strong></div>
+          <div><span>Net Income</span><strong id="netResult">-</strong></div>
+          <div><span>Effective Rate</span><strong id="rateResult">-</strong></div>
+        </div>
+        <h3>Bracket Breakdown</h3>
+        <div id="breakdown"></div>
+      </section>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

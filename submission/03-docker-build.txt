@@ -1,0 +1,5 @@
+PASTE REAL OUTPUT HERE AFTER RUNNING:
+
+docker build -t tax-calculator:1.0 .
+
+Do not submit invented output.

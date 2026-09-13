@@ -1,0 +1,19 @@
+# Template: replace the values marked CHANGE_ME.
+# This example assumes a PVC named tax-calculator-source already contains
+# the Git repository or is populated by your course's Git clone task.
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: tax-calculator-run-
+spec:
+  pipelineRef:
+    name: tax-calculator-pipeline
+  params:
+    - name: IMAGE
+      value: us.icr.io/CHANGE_ME/tax-calculator
+    - name: TAG
+      value: pipeline-1
+  workspaces:
+    - name: source
+      persistentVolumeClaim:
+        claimName: tax-calculator-source

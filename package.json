@@ -1,0 +1,17 @@
+{
+  "name": "tax-calculator-final-project",
+  "version": "1.0.0",
+  "description": "Cloud Native Tax Calculator - IBM Cloud / Docker / Jasmine / Tekton final project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jasmine",
+    "test:verbose": "jasmine --config=jasmine.json"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "jasmine": "^5.7.0"
+  }
+}

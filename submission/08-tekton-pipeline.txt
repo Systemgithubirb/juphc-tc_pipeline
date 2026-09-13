@@ -1,0 +1,4 @@
+PASTE YOUR REAL COMMAND/OUTPUT HERE:
+
+kubectl apply -f tekton/pipeline.yaml
+kubectl get pipeline tax-calculator-pipeline

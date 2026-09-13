@@ -1,0 +1,12 @@
+PASTE REAL OUTPUT HERE AFTER RUNNING:
+
+npm test
+
+OUTPUT:
+Randomized with seed 88328
+Started
+.......
+
+7 specs, 0 failures
+Finished in 0.009 seconds
+Randomized with seed 88328 (jasmine --random=true --seed=88328)

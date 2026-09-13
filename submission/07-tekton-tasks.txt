@@ -1,0 +1,4 @@
+PASTE YOUR REAL COMMAND/OUTPUT HERE:
+
+kubectl apply -f tekton/tasks.yaml
+kubectl get tasks

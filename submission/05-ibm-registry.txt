@@ -1,0 +1,7 @@
+PASTE REAL IBM CLOUD TERMINAL OUTPUT HERE.
+
+Useful commands:
+ibmcloud login
+ibmcloud cr region-set us-south
+docker tag tax-calculator:1.0 us.icr.io/YOUR_NAMESPACE/tax-calculator:1.0
+docker push us.icr.io/YOUR_NAMESPACE/tax-calculator:1.0

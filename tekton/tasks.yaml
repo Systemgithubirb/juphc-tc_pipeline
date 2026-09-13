@@ -1,0 +1,63 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: run-tests
+spec:
+  workspaces:
+    - name: source
+  steps:
+    - name: install-and-test
+      image: node:20-alpine
+      workingDir: $(workspaces.source.path)
+      script: |
+        #!/bin/sh
+        set -eux
+        npm ci
+        npm test
+
+---
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: build-image
+spec:
+  params:
+    - name: IMAGE
+      type: string
+    - name: TAG
+      type: string
+      default: latest
+  workspaces:
+    - name: source
+  steps:
+    - name: build
+      image: gcr.io/kaniko-project/executor:v1.23.2
+      args:
+        - --dockerfile=$(workspaces.source.path)/Dockerfile
+        - --context=$(workspaces.source.path)
+        - --destination=$(params.IMAGE):$(params.TAG)
+
+---
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: deploy-image
+spec:
+  params:
+    - name: IMAGE
+      type: string
+    - name: TAG
+      type: string
+  workspaces:
+    - name: source
+  steps:
+    - name: deploy
+      image: bitnami/kubectl:1.31
+      workingDir: $(workspaces.source.path)
+      script: |
+        #!/bin/sh
+        set -eux
+        sed "s|IMAGE_PLACEHOLDER|$(params.IMAGE):$(params.TAG)|g" \
+          k8s/deployment.yaml > /tmp/deployment.yaml
+        kubectl apply -f /tmp/deployment.yaml
+        kubectl rollout status deployment/tax-calculator --timeout=180s

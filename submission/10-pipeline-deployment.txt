@@ -1,0 +1,6 @@
+Save the REAL final application screenshot here.
+
+The screenshot should show the deployed Tax Calculator after the Tekton pipeline completed successfully.
+
+Record the final URL:
+https://YOUR-REAL-CLOUD-URL

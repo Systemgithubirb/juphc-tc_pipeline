@@ -1,0 +1,5 @@
+PASTE REAL PIPELINE OUTPUT HERE:
+
+kubectl create -f tekton/pipeline-run.yaml
+tkn pipelinerun list
+tkn pipelinerun logs <REAL_PIPELINERUN_NAME> -f

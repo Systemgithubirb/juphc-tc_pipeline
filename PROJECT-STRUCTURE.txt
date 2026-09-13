@@ -1,0 +1,15 @@
+tax-calculator-final-project/
+├── public/                 # Web UI
+├── src/                    # Tax calculation logic
+├── spec/                   # Jasmine unit tests
+├── scripts/                # Docker + IBM Cloud helper scripts
+├── k8s/                   # Kubernetes/IBM Cloud deployment
+├── tekton/                # Tekton Tasks, Pipeline and PipelineRun
+├── docs/                   # Part A planning + grading map
+├── submission/             # Evidence templates
+├── Dockerfile
+├── docker-compose.yml
+├── package.json
+├── jasmine.json
+├── server.js
+└── README.md
