@@ -1,19 +1,7 @@
-FROM node:20-alpine
+FROM nginx
 
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci --omit=dev
-
-COPY src ./src
-COPY public ./public
-COPY server.js ./
-
-ENV NODE_ENV=production
-ENV PORT=3000
-
-EXPOSE 3000
-
-USER node
-
-CMD ["node", "server.js"]
+COPY public/favicon.ico /usr/share/nginx/html/favicon.ico
+COPY public/index.html /usr/share/nginx/html/index.html
+COPY public/script.js /usr/share/nginx/html/script.js
+COPY public/style.css /usr/share/nginx/html/style.css
+COPY src/taxCalculator.js /usr/share/nginx/html/taxCalculator.js
